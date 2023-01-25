@@ -1,30 +1,20 @@
 <script>
-import MyButton from './components/MyButton.vue';
-  export default{
-    data() {
-        return {
-            msg: "今天天气不错",
-            stu:{
-              name:'孙悟空',
-              age:18,
-              address:"花果山"
-            },
-            money:[0,1,2,3,4,5,6,7,8,9]
-        };
-    },
-    components:{
-      MyButton
+export default {
+  // data用来指定实例对象中的响应式属性
+  data() {
+    return {
+      stu: {
+        name: '孙悟空',
+        age: 18,
+        gender: "man"
+      }
     }
+  }
+
+
 }
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
-  <hr>
-  <h2>{{ stu.name }}--{{ stu.age }}--{{ stu.address }}</h2>
-  <MyButton></MyButton>
-  <MyButton></MyButton>
-  <MyButton></MyButton>
-  <hr>
-  <p>{{ money }}</p>
+  <h1>{{ stu.name }} -- {{ stu.age }} -- {{ stu.gender }}</h1>
 </template>
