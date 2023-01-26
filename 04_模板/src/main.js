@@ -1,5 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+
 const app = createApp(App)
-const vm = app.mount('#app')
-window.vm = vm
+
+app.config.globalProperties.hello = '你好，我是全局属性'
+
+app.mount('#app')
