@@ -1,47 +1,50 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { ref } from 'vue';
+    // 创建变量来记录选项卡的状态
+    const current = ref(0)  // 0 球员 1 球队
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <!-- 选项卡外部容器 -->
+    <div class="tab-wrapper">
+        <!-- 选项卡的头部 -->
+        <header class="tab-head">
+            <!-- 定义两个按钮 -->
+            <div @click="current = 0" class="tab-button" :class="{ active:current === 0 }">热门球员</div>
+            <div @click="current = 1" class="tab-button" :class="{ active:current === 1 }">热门球队</div>
+        </header>
+        <!-- 选项卡的主体 -->
+        <div class="main"></div>
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
+    .tab-wrapper{
+        box-sizing: border-box;
+        width: 800px;
+        padding: 20px;
+        background-color: rgb(45,83,211);
+    }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
+    .tab-head{
+        display: flex;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .tab-button{
+        background-color: #fff;
+        padding: 10px 0;
+        font-size: 30px;
+        text-align: center;
+        flex: auto;
+        cursor: pointer;
+    }
+    .tab-button:not(.active):hover{
+        color: rgb(187,3,52);
+    }
+    .active{
+        background-color: rgb(187,3,52);
+        color: #fff;
+        transition: 0.3s;
+    }
 </style>
